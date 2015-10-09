@@ -1,0 +1,24 @@
+{
+  "name": "fluent-d3",
+  "version": "1.0.0",
+  "description": "Fluent wrapper around d3",
+  "main": "index.js",
+  "directories": {
+    "example": "examples"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Derek Pittsinger",
+  "license": "ISC",
+  "devDependencies": {
+    "del": "^2.0.2",
+    "gulp": "^3.9.0",
+    "gulp-babel": "^5.2.1",
+    "gulp-typescript": "^2.9.2",
+    "require-dir": "^0.3.0",
+    "run-sequence": "^1.1.4",
+    "typescript": "^1.6.2",
+    "vinyl-paths": "^2.0.0"
+  }
+}
