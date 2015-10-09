@@ -62,7 +62,7 @@ export class ChartBuilder {
             .attr("width", this.size.width + this.margin.left + this.margin.right)
             .attr("height", this.size.height + this.margin.top + this.margin.bottom)
             .append("g")
-            .attr("transform", `translate(${this.margin.left}, #{this.margin.top})`);
+            .attr("transform", `translate(${this.margin.left}, ${this.margin.top})`);
 
         let width = this.size.width;
         let height = this.size.height;

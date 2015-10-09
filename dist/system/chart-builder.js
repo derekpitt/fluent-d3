@@ -76,7 +76,7 @@ System.register(['util/empty-element', 'd3'], function (_export) {
                     key: 'startDraw',
                     value: function startDraw(where) {
                         empty(where);
-                        this._svg = d3.select(where).append("svg").attr("width", this.size.width + this.margin.left + this.margin.right).attr("height", this.size.height + this.margin.top + this.margin.bottom).append("g").attr("transform", 'translate(' + this.margin.left + ', #{this.margin.top})');
+                        this._svg = d3.select(where).append("svg").attr("width", this.size.width + this.margin.left + this.margin.right).attr("height", this.size.height + this.margin.top + this.margin.bottom).append("g").attr("transform", 'translate(' + this.margin.left + ', ' + this.margin.top + ')');
                         var width = this.size.width;
                         var height = this.size.height;
                         return { svg: this._svg, width: width, height: height };

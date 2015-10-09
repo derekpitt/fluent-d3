@@ -80,7 +80,7 @@ var ChartBuilder = (function () {
         key: 'startDraw',
         value: function startDraw(where) {
             (0, _utilEmptyElement2['default'])(where);
-            this._svg = _d32['default'].select(where).append("svg").attr("width", this.size.width + this.margin.left + this.margin.right).attr("height", this.size.height + this.margin.top + this.margin.bottom).append("g").attr("transform", 'translate(' + this.margin.left + ', #{this.margin.top})');
+            this._svg = _d32['default'].select(where).append("svg").attr("width", this.size.width + this.margin.left + this.margin.right).attr("height", this.size.height + this.margin.top + this.margin.bottom).append("g").attr("transform", 'translate(' + this.margin.left + ', ' + this.margin.top + ')');
             var width = this.size.width;
             var height = this.size.height;
             return { svg: this._svg, width: width, height: height };

@@ -57,9 +57,9 @@ define(['exports', 'util/next-id', 'd3'], function (exports, _utilNextId, _d3) {
             value: function tooltipEnter(d) {
                 var _this = this;
 
-                this._tooltipDiv = _d32['default'].select("body").append("div").attr("class", "#{this.class} graph_tooltip").html(this.hoverTemplate(d, this.legendName)).style("left", "#{d3.event.pageX}px").style("top", "#{d3.event.pageY}px");
+                this._tooltipDiv = _d32['default'].select("body").append("div").attr("class", this.className + ' graph_tooltip').html(this.hoverTemplate(d, this.legendName)).style("left", _d32['default'].event.pageX + 'px').style("top", _d32['default'].event.pageY + 'px');
                 setTimeout(function () {
-                    _this._tooltipDiv.attr("class", "#{this.class} graph_tooltip open");
+                    _this._tooltipDiv.attr("class", _this.className + ' graph_tooltip open');
                 }, 1);
             }
         }, {

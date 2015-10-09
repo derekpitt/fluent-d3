@@ -55,9 +55,9 @@ System.register(['util/next-id', 'd3'], function (_export) {
                     value: function tooltipEnter(d) {
                         var _this = this;
 
-                        this._tooltipDiv = d3.select("body").append("div").attr("class", "#{this.class} graph_tooltip").html(this.hoverTemplate(d, this.legendName)).style("left", "#{d3.event.pageX}px").style("top", "#{d3.event.pageY}px");
+                        this._tooltipDiv = d3.select("body").append("div").attr("class", this.className + ' graph_tooltip').html(this.hoverTemplate(d, this.legendName)).style("left", d3.event.pageX + 'px').style("top", d3.event.pageY + 'px');
                         setTimeout(function () {
-                            _this._tooltipDiv.attr("class", "#{this.class} graph_tooltip open");
+                            _this._tooltipDiv.attr("class", _this.className + ' graph_tooltip open');
                         }, 1);
                     }
                 }, {

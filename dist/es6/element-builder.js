@@ -29,12 +29,12 @@ export class ElementBuilder {
     tooltipEnter(d) {
         this._tooltipDiv = d3.select("body")
             .append("div")
-            .attr("class", "#{this.class} graph_tooltip")
+            .attr("class", `${this.className} graph_tooltip`)
             .html(this.hoverTemplate(d, this.legendName))
-            .style("left", "#{d3.event.pageX}px")
-            .style("top", "#{d3.event.pageY}px");
+            .style("left", `${d3.event.pageX}px`)
+            .style("top", `${d3.event.pageY}px`);
         setTimeout(() => {
-            this._tooltipDiv.attr("class", "#{this.class} graph_tooltip open");
+            this._tooltipDiv.attr("class", `${this.className} graph_tooltip open`);
         }, 1);
     }
     tooltipLeave() {
