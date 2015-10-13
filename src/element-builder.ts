@@ -6,7 +6,7 @@ export type xyData = { x: number | string; y: number };
 export type templater = (...args: any[]) => string;
 
 function defaultToolTipTemplate(data: xyData, legendName: string) {
-    return `${legendName} ${data.y}`;
+    return `${legendName} - ${data.y}`;
 }
 
 export class ElementBuilder {
@@ -50,4 +50,6 @@ export class ElementBuilder {
     protected tooltipLeave() {
         if (this._tooltipDiv) this._tooltipDiv.remove();
     }
+
+    public draw(svg: d3.Selection<any>, x: any, y: any, width: number, height: number) {}
 }

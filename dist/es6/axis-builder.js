@@ -47,20 +47,24 @@ export class AxisBuilder {
         switch (this.xMode) {
             case axisMode.domain:
                 x = d3.scale.ordinal().domain(this.xLabels).rangePoints([0, width]);
+                break;
             case axisMode.range:
                 x = d3.scale.linear().range([width, 0]).domain(this.xRange);
+                break;
         }
         let y = null;
         switch (this.yMode) {
             case axisMode.domain:
                 y = d3.scale.ordinal().domain(this.yLabels).rangePoints([0, height]);
+                break;
             case axisMode.range:
                 y = d3.scale.linear().range([height, 0]).domain(this.yRange);
+                break;
         }
         return { x: x, y: y };
     }
     draw(svg, x, y, width, height) {
-        if (this.hide)
+        if (this.hidden)
             return;
         let xAxis = d3.svg.axis().scale(x).orient("bottom");
         if (this.xHasTicks)

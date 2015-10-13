@@ -103,8 +103,8 @@ export class LineBuilder extends ElementBuilder {
                 .attr("r", (d) => 5)
 
             if (this.showHover) {
-                selectedPoints.on("mouseover", this.tooltipEnter)
-                    .on("mouseout", this.tooltipLeave)
+                selectedPoints.on("mouseover", (d) => this.tooltipEnter(d))
+                    .on("mouseout", () => this.tooltipLeave())
             }
         }
     }

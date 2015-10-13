@@ -16,7 +16,7 @@ define(['exports', 'util/next-id', 'd3'], function (exports, _utilNextId, _d3) {
     var _d32 = _interopRequireDefault(_d3);
 
     function defaultToolTipTemplate(data, legendName) {
-        return legendName + ' ' + data.y;
+        return legendName + ' - ' + data.y;
     }
 
     var ElementBuilder = (function () {
@@ -67,6 +67,9 @@ define(['exports', 'util/next-id', 'd3'], function (exports, _utilNextId, _d3) {
             value: function tooltipLeave() {
                 if (this._tooltipDiv) this._tooltipDiv.remove();
             }
+        }, {
+            key: 'draw',
+            value: function draw(svg, x, y, width, height) {}
         }]);
 
         return ElementBuilder;

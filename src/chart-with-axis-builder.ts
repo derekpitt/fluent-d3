@@ -1,10 +1,11 @@
 import { AxisBuilder } from 'axis-builder';
 import { ChartBuilder } from 'chart-builder';
 import { LineBuilder } from 'line-builder';
+import { ElementBuilder } from 'element-builder';
 
 export class ChartWithAxisBuilder extends ChartBuilder {
   private axisBuilder = new AxisBuilder();
-  protected elements: LineBuilder[] = [];
+  protected elements: ElementBuilder[] = [];
 
   public configureAxis(configurer: (builder: AxisBuilder) => void) {
     this.axisBuilder = new AxisBuilder();

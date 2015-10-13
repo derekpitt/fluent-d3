@@ -104,7 +104,11 @@ define(['exports', 'element-builder', 'd3'], function (exports, _elementBuilder,
                         return 5;
                     });
                     if (this.showHover) {
-                        selectedPoints.on("mouseover", this.tooltipEnter).on("mouseout", this.tooltipLeave);
+                        selectedPoints.on("mouseover", function (d) {
+                            return _this.tooltipEnter(d);
+                        }).on("mouseout", function () {
+                            return _this.tooltipLeave();
+                        });
                     }
                 }
             }
