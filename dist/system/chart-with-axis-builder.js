@@ -1,4 +1,4 @@
-System.register(['axis-builder', 'chart-builder'], function (_export) {
+System.register(['./axis-builder', './chart-builder'], function (_export) {
     'use strict';
 
     var AxisBuilder, ChartBuilder, ChartWithAxisBuilder;

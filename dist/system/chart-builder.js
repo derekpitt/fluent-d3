@@ -1,4 +1,4 @@
-System.register(['util/empty-element', 'd3'], function (_export) {
+System.register(['./util/empty-element', 'd3'], function (_export) {
     'use strict';
 
     var empty, d3, ChartBuilder;

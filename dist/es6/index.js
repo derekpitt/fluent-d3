@@ -1,1 +1,1 @@
-export * from 'line-graph-builder';
+export * from './line-graph-builder';

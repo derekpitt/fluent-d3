@@ -1,4 +1,4 @@
-define(['exports', 'line-graph-builder'], function (exports, _lineGraphBuilder) {
+define(['exports', './line-graph-builder'], function (exports, _lineGraphBuilder) {
   'use strict';
 
   Object.defineProperty(exports, '__esModule', {

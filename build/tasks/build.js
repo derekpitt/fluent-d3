@@ -3,10 +3,27 @@ var runSequence = require('run-sequence');
 var paths = require('../paths');
 var ts = require('gulp-typescript');
 var to5 = require('gulp-babel');
+var replace = require('gulp-replace');
 
 var tsProject = ts.createProject(paths.root + 'tsconfig.json', {
-  typescript: require('typescript'),
-  declaration: true
+  typescript: require('typescript')
+});
+
+var dtsFile = paths.output + 'fluent-d3.d.ts';
+
+gulp.task('build-dts', function() {
+  return require('dts-generator').generate({
+    name: 'fluent-d3',
+    baseDir: './src',
+    files: ['index.ts'],
+    out: dtsFile
+  });
+});
+
+gulp.task('build-dts-fix', function() {
+  return gulp.src(dtsFile)
+    .pipe(replace('declare module \'fluent-d3/index\'', 'declare module \'fluent-d3\''))
+    .pipe(gulp.dest(paths.output));
 });
 
 gulp.task('build-es6', function() {
@@ -59,6 +76,8 @@ gulp.task('build', function(callback) {
     'build-system',
     'build-common',
     'build-umd',
+    'build-dts',
+    'build-dts-fix',
     callback
   );
 });

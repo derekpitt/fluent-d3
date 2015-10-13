@@ -1,8 +1,8 @@
 (function (global, factory) {
     if (typeof define === 'function' && define.amd) {
-        define(['exports', 'line-builder', 'chart-with-axis-builder'], factory);
+        define(['exports', './line-builder', './chart-with-axis-builder'], factory);
     } else if (typeof exports !== 'undefined') {
-        factory(exports, require('line-builder'), require('chart-with-axis-builder'));
+        factory(exports, require('./line-builder'), require('./chart-with-axis-builder'));
     } else {
         var mod = {
             exports: {}

@@ -1,4 +1,4 @@
-System.register(['element-builder', 'd3'], function (_export) {
+System.register(['./element-builder', 'd3'], function (_export) {
     'use strict';
 
     var ElementBuilder, d3, LineBuilder;

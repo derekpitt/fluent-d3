@@ -1,4 +1,4 @@
-define(['exports', 'util/next-id', 'd3'], function (exports, _utilNextId, _d3) {
+define(['exports', './util/next-id', 'd3'], function (exports, _utilNextId, _d3) {
     'use strict';
 
     Object.defineProperty(exports, '__esModule', {

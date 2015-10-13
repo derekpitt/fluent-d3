@@ -1,4 +1,4 @@
-System.register(['util/next-id', 'd3'], function (_export) {
+System.register(['./util/next-id', 'd3'], function (_export) {
     'use strict';
 
     var nextId, d3, ElementBuilder;

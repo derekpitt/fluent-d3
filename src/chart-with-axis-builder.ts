@@ -1,7 +1,7 @@
-import { AxisBuilder } from 'axis-builder';
-import { ChartBuilder } from 'chart-builder';
-import { LineBuilder } from 'line-builder';
-import { ElementBuilder } from 'element-builder';
+import { AxisBuilder } from './axis-builder';
+import { ChartBuilder } from './chart-builder';
+import { LineBuilder } from './line-builder';
+import { ElementBuilder } from './element-builder';
 
 export class ChartWithAxisBuilder extends ChartBuilder {
   private axisBuilder = new AxisBuilder();

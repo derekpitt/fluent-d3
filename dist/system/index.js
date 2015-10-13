@@ -1,4 +1,4 @@
-System.register(['line-graph-builder'], function (_export) {
+System.register(['./line-graph-builder'], function (_export) {
   'use strict';
 
   return {

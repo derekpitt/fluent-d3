@@ -1,8 +1,8 @@
 (function (global, factory) {
     if (typeof define === 'function' && define.amd) {
-        define(['exports', 'util/empty-element', 'd3'], factory);
+        define(['exports', './util/empty-element', 'd3'], factory);
     } else if (typeof exports !== 'undefined') {
-        factory(exports, require('util/empty-element'), require('d3'));
+        factory(exports, require('./util/empty-element'), require('d3'));
     } else {
         var mod = {
             exports: {}

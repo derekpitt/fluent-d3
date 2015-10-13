@@ -1,4 +1,4 @@
-import nextId from 'util/next-id';
+import nextId from './util/next-id';
 import d3 from 'd3';
 
 // these need a new home..

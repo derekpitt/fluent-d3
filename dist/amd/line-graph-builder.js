@@ -1,4 +1,4 @@
-define(['exports', 'line-builder', 'chart-with-axis-builder'], function (exports, _lineBuilder, _chartWithAxisBuilder) {
+define(['exports', './line-builder', './chart-with-axis-builder'], function (exports, _lineBuilder, _chartWithAxisBuilder) {
     'use strict';
 
     Object.defineProperty(exports, '__esModule', {

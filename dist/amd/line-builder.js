@@ -1,4 +1,4 @@
-define(['exports', 'element-builder', 'd3'], function (exports, _elementBuilder, _d3) {
+define(['exports', './element-builder', 'd3'], function (exports, _elementBuilder, _d3) {
     'use strict';
 
     Object.defineProperty(exports, '__esModule', {

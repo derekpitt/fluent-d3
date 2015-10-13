@@ -1,4 +1,4 @@
-import { ElementBuilder } from 'element-builder';
+import { ElementBuilder } from './element-builder';
 import d3 from 'd3';
 function defaultDataFilter(d) {
     return d.y > 0;

@@ -1,4 +1,4 @@
-define(['exports', 'util/empty-element', 'd3'], function (exports, _utilEmptyElement, _d3) {
+define(['exports', './util/empty-element', 'd3'], function (exports, _utilEmptyElement, _d3) {
     'use strict';
 
     Object.defineProperty(exports, '__esModule', {

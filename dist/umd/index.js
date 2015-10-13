@@ -1,8 +1,8 @@
 (function (global, factory) {
   if (typeof define === 'function' && define.amd) {
-    define(['exports', 'line-graph-builder'], factory);
+    define(['exports', './line-graph-builder'], factory);
   } else if (typeof exports !== 'undefined') {
-    factory(exports, require('line-graph-builder'));
+    factory(exports, require('./line-graph-builder'));
   } else {
     var mod = {
       exports: {}

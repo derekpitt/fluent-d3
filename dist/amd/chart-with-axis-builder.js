@@ -1,4 +1,4 @@
-define(['exports', 'axis-builder', 'chart-builder'], function (exports, _axisBuilder, _chartBuilder) {
+define(['exports', './axis-builder', './chart-builder'], function (exports, _axisBuilder, _chartBuilder) {
     'use strict';
 
     Object.defineProperty(exports, '__esModule', {

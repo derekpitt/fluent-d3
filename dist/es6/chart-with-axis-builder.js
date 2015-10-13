@@ -1,5 +1,5 @@
-import { AxisBuilder } from 'axis-builder';
-import { ChartBuilder } from 'chart-builder';
+import { AxisBuilder } from './axis-builder';
+import { ChartBuilder } from './chart-builder';
 export class ChartWithAxisBuilder extends ChartBuilder {
     constructor(...args) {
         super(...args);

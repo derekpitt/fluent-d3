@@ -1,8 +1,8 @@
 (function (global, factory) {
     if (typeof define === 'function' && define.amd) {
-        define(['exports', 'element-builder', 'd3'], factory);
+        define(['exports', './element-builder', 'd3'], factory);
     } else if (typeof exports !== 'undefined') {
-        factory(exports, require('element-builder'), require('d3'));
+        factory(exports, require('./element-builder'), require('d3'));
     } else {
         var mod = {
             exports: {}

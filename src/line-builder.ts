@@ -1,5 +1,5 @@
-import { ElementBuilder, xyData } from 'element-builder';
-import { Drawer, Scale } from 'axis-builder';
+import { ElementBuilder, xyData } from './element-builder';
+import { Drawer, Scale } from './axis-builder';
 import d3 from 'd3';
 
 export type dataFilter = (d: xyData) => boolean;

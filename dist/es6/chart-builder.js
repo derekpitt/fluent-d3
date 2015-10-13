@@ -1,4 +1,4 @@
-import empty from 'util/empty-element';
+import empty from './util/empty-element';
 import d3 from 'd3';
 export class ChartBuilder {
     constructor() {
