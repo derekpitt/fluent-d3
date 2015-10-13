@@ -23,7 +23,8 @@ gulp.task('build-dts', function() {
 gulp.task('build-dts-fix', function() {
   return gulp.src(dtsFile)
     .pipe(replace('declare module \'fluent-d3/index\'', 'declare module \'fluent-d3\''))
-    .pipe(gulp.dest(paths.output));
+    .pipe(gulp.dest(paths.output))
+    .pipe(gulp.dest(paths.output + 'amd/')); // also output here, since we are using amd for jspm so it can be included in there.
 });
 
 gulp.task('build-es6', function() {
