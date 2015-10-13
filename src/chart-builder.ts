@@ -1,29 +1,29 @@
 import empty from './util/empty-element';
 import d3 from 'd3';
 
-export class ChartBuilder {
+export class ChartBuilder<T> {
     private size = { width: 0, height: 0 };
     private margin = { top: 0, right: 0, left: 0, bottom: 0 };
     private legendElementWidth = 200;
     private _svg: d3.Selection<any> = null;
 
-    public withSize(width: number, height: number) {
+    public withSize(width: number, height: number): T {
         this.size.width = width;
         this.size.height = height;
-        return this;
+        return <any>this as T;
     }
 
-    public withMargins(top: number, right: number, bottom: number, left: number) {
+    public withMargins(top: number, right: number, bottom: number, left: number): T {
         this.margin.top = top;
         this.margin.right = right;
         this.margin.bottom = bottom;
         this.margin.left = left;
-        return this;
+        return <any>this as T;
     }
 
-    public withLegendWidth(width: number) {
+    public withLegendWidth(width: number): T {
         this.legendElementWidth = width;
-        return this;
+        return <any>this as T;
     }
 
     public drawLine(x1: number, y1: number, x2: number, y2: number, className: string) {
@@ -36,7 +36,7 @@ export class ChartBuilder {
             .attr("y2", y2);
     }
 
-    public drawLegend(legendData: { className: string, legendName: string }[]) {
+    protected drawLegend(legendData: { className: string, legendName: string }[]) {
         if (this._svg == null) return;
         let legend = this._svg.selectAll(".legend")
             .data(legendData)

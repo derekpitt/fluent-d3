@@ -9,7 +9,7 @@ function defaultToolTipTemplate(data: xyData, legendName: string) {
     return `${legendName} - ${data.y}`;
 }
 
-export class ElementBuilder {
+export class ElementBuilder<T> {
     public className = "";
     public legendName = "";
     private id = nextId("element");
@@ -17,21 +17,22 @@ export class ElementBuilder {
     private hoverTemplate = defaultToolTipTemplate;
     private _tooltipDiv = null;
 
-    public withLegendName(name: string) {
+    public withLegendName(name: string): T {
         this.legendName = name;
-        return this;
+        return <any>this as T;
     }
 
-    public withClass(cl: string) {
+    public withClass(cl: string): T {
         this.className = cl;
-        return this;
+        return <any>this as T;
     }
 
-    public withHover(template: templater = null) {
+    public withHover(template: templater = null): T {
         this.showHover = true;
         if (template != null)
             this.hoverTemplate = template;
-        return this;
+
+        return <any>this as T;
     }
 
     protected tooltipEnter(d: xyData) {

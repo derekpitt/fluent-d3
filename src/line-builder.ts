@@ -8,7 +8,7 @@ function defaultDataFilter(d: xyData) {
     return d.y > 0;
 }
 
-export class LineBuilder extends ElementBuilder {
+export class LineBuilder extends ElementBuilder<LineBuilder> {
     private data: xyData[] = [];
 
     private hasPoints = false;

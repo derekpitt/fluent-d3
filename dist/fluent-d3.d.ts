@@ -9,16 +9,16 @@ declare module 'fluent-d3/element-builder' {
 	    y: number;
 	};
 	export type templater = (...args: any[]) => string;
-	export class ElementBuilder {
+	export class ElementBuilder<T> {
 	    className: string;
 	    legendName: string;
 	    private id;
 	    protected showHover: boolean;
 	    private hoverTemplate;
 	    private _tooltipDiv;
-	    withLegendName(name: string): ElementBuilder;
-	    withClass(cl: string): ElementBuilder;
-	    withHover(template?: templater): ElementBuilder;
+	    withLegendName(name: string): T;
+	    withClass(cl: string): T;
+	    withHover(template?: templater): T;
 	    protected tooltipEnter(d: xyData): void;
 	    protected tooltipLeave(): void;
 	    draw(svg: d3.Selection<any>, x: any, y: any, width: number, height: number): void;
@@ -60,7 +60,7 @@ declare module 'fluent-d3/line-builder' {
 	import { ElementBuilder, xyData } from 'fluent-d3/element-builder';
 	import d3 from 'd3';
 	export type dataFilter = (d: xyData) => boolean;
-	export class LineBuilder extends ElementBuilder {
+	export class LineBuilder extends ElementBuilder<LineBuilder> {
 	    private data;
 	    private hasPoints;
 	    private pointsFilter;
@@ -80,16 +80,16 @@ declare module 'fluent-d3/util/empty-element' {
 
 }
 declare module 'fluent-d3/chart-builder' {
-	export class ChartBuilder {
+	export class ChartBuilder<T> {
 	    private size;
 	    private margin;
 	    private legendElementWidth;
 	    private _svg;
-	    withSize(width: number, height: number): ChartBuilder;
-	    withMargins(top: number, right: number, bottom: number, left: number): ChartBuilder;
-	    withLegendWidth(width: number): ChartBuilder;
+	    withSize(width: number, height: number): T;
+	    withMargins(top: number, right: number, bottom: number, left: number): T;
+	    withLegendWidth(width: number): T;
 	    drawLine(x1: number, y1: number, x2: number, y2: number, className: string): void;
-	    drawLegend(legendData: {
+	    protected drawLegend(legendData: {
 	        className: string;
 	        legendName: string;
 	    }[]): void;
@@ -105,9 +105,9 @@ declare module 'fluent-d3/chart-with-axis-builder' {
 	import { AxisBuilder } from 'fluent-d3/axis-builder';
 	import { ChartBuilder } from 'fluent-d3/chart-builder';
 	import { ElementBuilder } from 'fluent-d3/element-builder';
-	export class ChartWithAxisBuilder extends ChartBuilder {
+	export class ChartWithAxisBuilder extends ChartBuilder<ChartWithAxisBuilder> {
 	    private axisBuilder;
-	    protected elements: ElementBuilder[];
+	    protected elements: ElementBuilder<{}>[];
 	    configureAxis(configurer: (builder: AxisBuilder) => void): ChartWithAxisBuilder;
 	    protected drawElements(svg: any, x: any, y: any, width: any, height: any): void;
 	    draw(where: Element): void;
