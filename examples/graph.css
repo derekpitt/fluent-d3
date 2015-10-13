@@ -1,0 +1,118 @@
+body {
+  background-color: #f7f8f9;
+  font-family: "Open Sans", "Helvetica Neue", Arial, Helvetica, Verdana, sans-serif;
+  vertical-align: baseline;
+  color: #47525D;
+  font-size: 15px;
+  line-height: 1.6;
+  font-style: normal;
+  font-weight: 400;
+}
+
+h1 {
+  padding: 10px;
+}
+
+.graph {
+  padding: 40px 10px;
+  margin: 10px;
+  border: 1px solid #ccc;
+  width: 600px;
+}
+
+.line {
+  stroke-width: 1px;
+  fill: none;
+}
+
+.line.line1 {
+  stroke: #27BDE9;
+}
+
+.line.line2 {
+  stroke: #4B9984;
+}
+
+.fill {
+  fill-opacity: 0.2;
+}
+
+.point {
+  stroke-width: 2px;
+  stroke: white;
+}
+
+.line1-fill {
+  fill: #27BDE9;
+}
+
+.line2-fill {
+  fill: #4B9984;
+}
+
+.point.line1 {
+  fill: #27BDE9;
+}
+
+.point.line2 {
+  fill: #4B9984;
+}
+
+.axis path.domain {
+  fill: transparent;
+}
+
+.axis .tick line {
+  opacity: 0.1;
+  stroke: black;
+  stroke-dasharray: 2, 5;
+}
+
+.axis text {
+  font-size: 0.7em;
+  fill: #6A737C;
+}
+
+.legend rect.line1 {
+  fill: #27BDE9;
+}
+
+.legend rect.line2 {
+  fill: #4B9984;
+}
+
+.legend text {
+  fill: #9AA5B0;
+}
+
+.graph_tooltip.line1 {
+  background-color: #27BDE9;
+}
+
+.graph_tooltip.line2 {
+  background-color: #4B9984;
+}
+
+.graph_tooltip {
+  position: absolute;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 1000;
+  background-color: #27BDE9;
+  text-align: center;
+  color: #fff;
+  padding: 8px 12px;
+  opacity: 0;
+  min-width: 140px;
+  border-radius: .15rem;
+  transition: opacity .2s, transform .2s;
+  -webkit-transform: translate(-50%, -112%);
+  transform: translate(-50%, -112%);
+  font-size: 13px;
+}
+
+.graph_tooltip.open {
+  visibility: visible;
+  opacity: .85;
+  transition: opacity 0.2s;
+}

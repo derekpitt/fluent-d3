@@ -1,0 +1,79 @@
+<html>
+
+<head>
+  <link rel="stylesheet" href="graph.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.20/require.min.js"></script>
+  <script>
+    requirejs.config({
+      //"baseUrl": "../dist/amd",
+      "baseUrl": "https://rawgithub.com/derekpitt/fluent-d3/master/dist/amd",
+      "paths": {
+        "d3": "https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min"
+      }
+    });
+  </script>
+</head>
+
+<body>
+  <h1>Example Line Graph</h1>
+  <div class="graph" id="line-graph"></div>
+
+  <script>
+    require(['line-graph-builder'], function(lineGraphBuilder) {
+      var line = new lineGraphBuilder.LineGraphBuilder()
+        .withSize(500, 230)
+        .withMargins(50, 50, 20, 50)
+        .configureAxis(function(a) {
+          a.withXLabels(['1/15', '2/15', '3/15', '4/15']);
+          a.withYRange(0, 100);
+          a.withXTicks();
+          a.withYTicks(5);
+        })
+        .withLine(function(l) {
+          l.withClass("line1")
+            .withLegendName("Line 1")
+            .withFill()
+            .withHover()
+            .withPoints()
+            .withData([{
+              x: '1/15',
+              y: 45
+            }, {
+              x: '2/15',
+              y: 10
+            }, {
+              x: '3/15',
+              y: 70
+            }, {
+              x: '4/15',
+              y: 50
+            }]);
+        })
+        .withLine(function(l) {
+          l.withClass("line2")
+            .withLegendName("Line 2")
+            .withFill()
+            .withHover()
+            .withSmoothLine()
+            .withPoints()
+            .withData([{
+              x: '1/15',
+              y: 20
+            }, {
+              x: '2/15',
+              y: 50
+            }, {
+              x: '3/15',
+              y: 0
+            }, {
+              x: '4/15',
+              y: 70
+            }]);
+        });
+
+      line.draw(document.getElementById("line-graph"));
+    });
+  </script>
+</body>
+
+</html>
