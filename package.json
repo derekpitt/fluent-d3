@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/derekpitt/fluent-d3"
+    "url": "git@github.com:derekpitt/fluent-d3.git"
   },
   "author": "Derek Pittsinger",
   "license": "ISC",
@@ -19,8 +19,8 @@
     "del": "^2.0.2",
     "gulp": "^3.9.0",
     "gulp-babel": "^5.2.1",
-    "gulp-github-release": "^1.0.3",
     "gulp-typescript": "^2.9.2",
+    "publish-release": "^1.1.0",
     "require-dir": "^0.3.0",
     "run-sequence": "^1.1.4",
     "typescript": "^1.6.2",
