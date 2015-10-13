@@ -1,6 +1,6 @@
 {
   "name": "fluent-d3",
-  "version": "0.0.3",
+  "version": "0.1.3",
   "description": "Fluent wrapper around d3",
   "main": "index.js",
   "directories": {
