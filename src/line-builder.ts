@@ -2,7 +2,7 @@ import { ElementBuilder, xyData } from 'element-builder';
 import { Drawer, Scale } from 'axis-builder';
 import d3 from 'd3';
 
-type dataFilter = (d: xyData) => boolean;
+export type dataFilter = (d: xyData) => boolean;
 
 function defaultDataFilter(d: xyData) {
     return d.y > 0;

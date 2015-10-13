@@ -5,7 +5,8 @@ var ts = require('gulp-typescript');
 var to5 = require('gulp-babel');
 
 var tsProject = ts.createProject(paths.root + 'tsconfig.json', {
-  typescript: require('typescript')
+  typescript: require('typescript'),
+  declaration: true
 });
 
 gulp.task('build-es6', function() {
