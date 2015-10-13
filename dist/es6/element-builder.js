@@ -1,7 +1,7 @@
 import nextId from 'util/next-id';
 import d3 from 'd3';
 function defaultToolTipTemplate(data, legendName) {
-    return `${legendName} ${data.y}`;
+    return `${legendName} - ${data.y}`;
 }
 export class ElementBuilder {
     constructor() {
@@ -41,4 +41,5 @@ export class ElementBuilder {
         if (this._tooltipDiv)
             this._tooltipDiv.remove();
     }
+    draw(svg, x, y, width, height) { }
 }

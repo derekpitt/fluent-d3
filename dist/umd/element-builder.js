@@ -28,7 +28,7 @@
     var _d32 = _interopRequireDefault(_d3);
 
     function defaultToolTipTemplate(data, legendName) {
-        return legendName + ' ' + data.y;
+        return legendName + ' - ' + data.y;
     }
 
     var ElementBuilder = (function () {
@@ -79,6 +79,9 @@
             value: function tooltipLeave() {
                 if (this._tooltipDiv) this._tooltipDiv.remove();
             }
+        }, {
+            key: 'draw',
+            value: function draw(svg, x, y, width, height) {}
         }]);
 
         return ElementBuilder;

@@ -22,8 +22,13 @@
     "vinyl-paths": "^2.0.0"
   },
   "jspm": {
+    "format": "amd",
+    "main": "index",
     "directories": {
-      "lib": "dist/es6"
+      "lib": "dist/amd"
+    },
+    "dependencies": {
+      "d3": "github:mbostock/d3@^3.5.6"
     }
   }
 }

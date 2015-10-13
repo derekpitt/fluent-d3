@@ -8,7 +8,7 @@ System.register(['util/next-id', 'd3'], function (_export) {
     function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 
     function defaultToolTipTemplate(data, legendName) {
-        return legendName + ' ' + data.y;
+        return legendName + ' - ' + data.y;
     }
     return {
         setters: [function (_utilNextId) {
@@ -65,6 +65,9 @@ System.register(['util/next-id', 'd3'], function (_export) {
                     value: function tooltipLeave() {
                         if (this._tooltipDiv) this._tooltipDiv.remove();
                     }
+                }, {
+                    key: 'draw',
+                    value: function draw(svg, x, y, width, height) {}
                 }]);
 
                 return ElementBuilder;
