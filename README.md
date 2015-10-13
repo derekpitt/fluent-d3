@@ -22,11 +22,16 @@ A wrapper around d3 to give a more fluent like API for building opinionated char
 
     line.draw(document.getElementById("line-graph"));
 
+## Install
+#### JSPM
 
-![Example Line Graph](https://raw.githubusercontent.com/derekpitt/fluent-d3/master/examples/example.png "Example Line Graph")
+    jspm install fluent-d3=github:derekpitt/fluent-d3
 
+## Give me a picture!
 
-View an [Example](https://rawgit.com/derekpitt/fluent-d3/master/examples/index.html)
+![Example Line Graph](https://raw.githubusercontent.com/derekpitt/fluent-d3/master/examples/example.png)
+
+View a [Live Example](https://rawgit.com/derekpitt/fluent-d3/master/examples/index.html)
 
 
 This package will contain a few charting elements we are using in [SlideRoom](http://www.slideroom.com)'s Review portal as well as a new product we are currently building.
