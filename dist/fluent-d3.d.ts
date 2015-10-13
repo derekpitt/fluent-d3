@@ -115,9 +115,10 @@ declare module 'fluent-d3/chart-with-axis-builder' {
 
 }
 declare module 'fluent-d3/line-graph-builder' {
+	import { LineBuilder } from 'fluent-d3/line-builder';
 	import { ChartWithAxisBuilder } from 'fluent-d3/chart-with-axis-builder';
 	export class LineGraphBuilder extends ChartWithAxisBuilder {
-	    withLine(configurer: (LineBuilder) => void): LineGraphBuilder;
+	    withLine(configurer: (l: LineBuilder) => void): LineGraphBuilder;
 	}
 
 }
