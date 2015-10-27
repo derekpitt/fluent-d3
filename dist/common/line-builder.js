@@ -104,8 +104,8 @@ var LineBuilder = (function (_ElementBuilder) {
                 }).attr("cy", function (d) {
                     return y(d.y);
                 }).attr("r", function (d) {
-                    return 0;
-                }); // use stroke in your css to make it bigger
+                    return 5;
+                });
                 if (this.showHover) {
                     selectedPoints.on("mouseover", function (d) {
                         return _this.tooltipEnter(d);

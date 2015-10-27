@@ -101,8 +101,8 @@ System.register(['./element-builder', 'd3'], function (_export) {
                             }).attr("cy", function (d) {
                                 return y(d.y);
                             }).attr("r", function (d) {
-                                return 0;
-                            }); // use stroke in your css to make it bigger
+                                return 5;
+                            });
                             if (this.showHover) {
                                 selectedPoints.on("mouseover", function (d) {
                                     return _this.tooltipEnter(d);

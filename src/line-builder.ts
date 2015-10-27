@@ -76,7 +76,7 @@ export class LineBuilder extends ElementBuilder<LineBuilder> {
             .enter()
             .append("path")
             .attr("class", `line ${this.className}`)
-            .attr("d", (d) => line(this.data))
+            .attr("d", (d) => line(this.data));
 
         if (this.hasPoints) {
             let points = this.data.filter(this.pointsFilter);
@@ -90,7 +90,7 @@ export class LineBuilder extends ElementBuilder<LineBuilder> {
                 .attr("x1", (d) => x(d.x))
                 .attr("y1", (d) => y(d.y))
                 .attr("x2", (d) => x(d.x))
-                .attr("y2", height)
+                .attr("y2", height);
 
             let selectedPoints = svg.selectAll(`.${this.className}-points`)
                 .append("g").attr("class", `${this.className}-points`)
@@ -100,11 +100,11 @@ export class LineBuilder extends ElementBuilder<LineBuilder> {
                 .attr("class", `point ${this.className}`)
                 .attr("cx", (d) => x(d.x))
                 .attr("cy", (d) => y(d.y))
-                .attr("r", (d) => 0) // use stroke in your css to make it bigger
+                .attr("r", (d) => 5);
 
             if (this.showHover) {
                 selectedPoints.on("mouseover", (d) => this.tooltipEnter(d))
-                    .on("mouseout", () => this.tooltipLeave())
+                    .on("mouseout", () => this.tooltipLeave());
             }
         }
     }

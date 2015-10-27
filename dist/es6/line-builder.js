@@ -79,7 +79,7 @@ export class LineBuilder extends ElementBuilder {
                 .attr("class", `point ${this.className}`)
                 .attr("cx", (d) => x(d.x))
                 .attr("cy", (d) => y(d.y))
-                .attr("r", (d) => 0); // use stroke in your css to make it bigger
+                .attr("r", (d) => 5);
             if (this.showHover) {
                 selectedPoints.on("mouseover", (d) => this.tooltipEnter(d))
                     .on("mouseout", () => this.tooltipLeave());

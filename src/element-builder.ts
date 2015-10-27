@@ -41,7 +41,7 @@ export class ElementBuilder<T> {
             .attr("class", `${this.className} graph_tooltip`)
             .html(this.hoverTemplate(d, this.legendName))
             .style("left", `${(<any>d3.event).pageX}px`)
-            .style("top", `${(<any>d3.event).pageY}px`)
+            .style("top", `${(<any>d3.event).pageY}px`);
 
         setTimeout(() => {
           this._tooltipDiv.attr("class", `${this.className} graph_tooltip open`);
