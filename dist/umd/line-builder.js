@@ -86,14 +86,14 @@
                 }).y(function (d) {
                     return y(d.y);
                 });
-                if (this.smooth) line.interpolate("cardinal").tension(0.5);
+                if (this.smooth) line.interpolate("monotone").tension(0.5);
                 if (this.fillBelow) {
                     var area = _d32['default'].svg.area().x(function (d) {
                         return x(d.x);
                     }).y0(height).y1(function (d) {
                         return y(d.y);
                     });
-                    if (this.smooth) area.interpolate("cardinal").tension(0.5);
+                    if (this.smooth) area.interpolate("monotone").tension(0.5);
                     svg.selectAll('.' + this.className + '-fill').data([this.data]).enter().append("path").attr("class", 'fill ' + this.className + '-fill').attr("d", area);
                 }
                 svg.selectAll('.' + this.className + '-line').append("g").attr("class", this.className + '-line').data([this.data]).enter().append("path").attr("class", 'line ' + this.className).attr("d", function (d) {
@@ -113,8 +113,8 @@
                     }).attr("cy", function (d) {
                         return y(d.y);
                     }).attr("r", function (d) {
-                        return 5;
-                    });
+                        return 0;
+                    }); // use stroke in your css to make it bigger
                     if (this.showHover) {
                         selectedPoints.on("mouseover", function (d) {
                             return _this.tooltipEnter(d);

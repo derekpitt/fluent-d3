@@ -50,7 +50,7 @@ export class LineBuilder extends ElementBuilder<LineBuilder> {
             .y((d) => y(d.y));
 
         if (this.smooth)
-            line.interpolate("cardinal").tension(0.5);
+            line.interpolate("monotone").tension(0.5);
 
         if (this.fillBelow) {
             let area = d3.svg
@@ -60,7 +60,7 @@ export class LineBuilder extends ElementBuilder<LineBuilder> {
                 .y1((d) => y(d.y));
 
             if (this.smooth)
-                area.interpolate("cardinal").tension(0.5);
+                area.interpolate("monotone").tension(0.5);
 
             svg.selectAll(`.${this.className}-fill`)
                 .data([this.data])
@@ -100,7 +100,7 @@ export class LineBuilder extends ElementBuilder<LineBuilder> {
                 .attr("class", `point ${this.className}`)
                 .attr("cx", (d) => x(d.x))
                 .attr("cy", (d) => y(d.y))
-                .attr("r", (d) => 5)
+                .attr("r", (d) => 0) // use stroke in your css to make it bigger
 
             if (this.showHover) {
                 selectedPoints.on("mouseover", (d) => this.tooltipEnter(d))
