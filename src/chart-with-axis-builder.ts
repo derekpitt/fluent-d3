@@ -3,11 +3,11 @@ import { ChartBuilder } from './chart-builder';
 import { LineBuilder } from './line-builder';
 import { ElementBuilder } from './element-builder';
 
-export class ChartWithAxisBuilder extends ChartBuilder<ChartWithAxisBuilder> {
+export class ChartWithAxisBuilder extends ChartBuilder {
   private axisBuilder = new AxisBuilder();
-  protected elements: ElementBuilder<{}>[] = [];
+  protected elements: ElementBuilder[] = [];
 
-  public configureAxis(configurer: (builder: AxisBuilder) => void) {
+  public configureAxis(configurer: (builder: AxisBuilder) => void): this {
     this.axisBuilder = new AxisBuilder();
     configurer(this.axisBuilder);
     return this;

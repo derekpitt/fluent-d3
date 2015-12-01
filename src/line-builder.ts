@@ -8,7 +8,7 @@ function defaultDataFilter(d: xyData) {
     return d.y > 0;
 }
 
-export class LineBuilder extends ElementBuilder<LineBuilder> {
+export class LineBuilder extends ElementBuilder {
     private data: xyData[] = [];
 
     private hasPoints = false;
@@ -20,24 +20,24 @@ export class LineBuilder extends ElementBuilder<LineBuilder> {
         super();
     }
 
-    public withData(data: xyData[]) {
+    public withData(data: xyData[]): this {
         this.data = data;
         return this;
     }
 
-    public withPoints(filter: dataFilter = null) {
+    public withPoints(filter: dataFilter = null): this {
         this.hasPoints = true;
         if (filter != null)
             this.pointsFilter = filter;
         return this;
     }
 
-    public withFill() {
+    public withFill(): this {
         this.fillBelow = true;
         return this;
     }
 
-    public withSmoothLine(val = true) {
+    public withSmoothLine(val = true): this {
         this.smooth = val;
         return this;
     }

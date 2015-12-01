@@ -36,6 +36,10 @@ View a [Live Example](https://rawgit.com/derekpitt/fluent-d3/master/examples/ind
 
 This package will contain a few charting elements we are using in [SlideRoom](http://www.slideroom.com)'s Review portal as well as a new product we are currently building.
 
+## TypeScript .d files
+
+Included is a .d.ts file for you to use in your TypeScript project. Typescript 1.7 is required to use.
+
 ## Documentation
 
 Coming soon

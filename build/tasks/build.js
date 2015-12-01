@@ -12,7 +12,8 @@ var tsProject = ts.createProject(paths.root + 'tsconfig.json', {
 var dtsFile = paths.output + 'fluent-d3.d.ts';
 
 gulp.task('build-dts', function() {
-  return require('dts-generator').generate({
+  console.log(require('dts-generator'));
+  return require('dts-generator').default({
     name: 'fluent-d3',
     baseDir: './src',
     files: ['index.ts'],
