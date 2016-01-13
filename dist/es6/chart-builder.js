@@ -58,8 +58,7 @@ export class ChartBuilder {
             .attr("height", this.size.height + this.margin.top + this.margin.bottom)
             .append("g")
             .attr("transform", `translate(${this.margin.left}, ${this.margin.top})`);
-        let width = this.size.width;
-        let height = this.size.height;
-        return { svg: this._svg, width: width, height: height };
+        const { width, height } = this.size;
+        return { svg: this._svg, width, height };
     }
 }

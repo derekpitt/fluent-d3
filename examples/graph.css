@@ -116,3 +116,16 @@ h1 {
   opacity: .85;
   transition: opacity 0.2s;
 }
+
+li.hover {
+  font-weight: bold;
+}
+
+ul.donut {
+  list-style: none;
+  width: 60px;
+}
+
+ul.donut li {
+  border-bottom: 1px solid grey;
+}

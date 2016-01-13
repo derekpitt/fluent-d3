@@ -11,3 +11,7 @@ function _defaults(obj, defaults) { var keys = Object.getOwnPropertyNames(defaul
 var _lineGraphBuilder = require('./line-graph-builder');
 
 _defaults(exports, _interopExportWildcard(_lineGraphBuilder, _defaults));
+
+var _donutGraphBuilder = require('./donut-graph-builder');
+
+_defaults(exports, _interopExportWildcard(_donutGraphBuilder, _defaults));

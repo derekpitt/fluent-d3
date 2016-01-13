@@ -3,7 +3,7 @@ import d3 from 'd3';
 
 export class ChartBuilder {
     private size = { width: 0, height: 0 };
-    private margin = { top: 0, right: 0, left: 0, bottom: 0 };
+    protected margin = { top: 0, right: 0, left: 0, bottom: 0 };
     private legendElementWidth = 200;
     private _svg: d3.Selection<any> = null;
 
@@ -64,9 +64,8 @@ export class ChartBuilder {
             .append("g")
             .attr("transform", `translate(${this.margin.left}, ${this.margin.top})`);
 
-        let width = this.size.width;
-        let height = this.size.height;
+        const { width, height } = this.size;
 
-        return { svg: this._svg, width: width, height: height };
+        return { svg: this._svg, width, height };
     }
 }

@@ -82,7 +82,12 @@ declare module 'fluent-d3/util/empty-element' {
 declare module 'fluent-d3/chart-builder' {
 	export class ChartBuilder {
 	    private size;
-	    private margin;
+	    protected margin: {
+	        top: number;
+	        right: number;
+	        left: number;
+	        bottom: number;
+	    };
 	    private legendElementWidth;
 	    private _svg;
 	    withSize(width: number, height: number): this;
@@ -122,7 +127,30 @@ declare module 'fluent-d3/line-graph-builder' {
 	}
 
 }
+declare module 'fluent-d3/donut-graph-builder' {
+	import { ChartBuilder } from 'fluent-d3/chart-builder';
+	export interface hasValue {
+	    value: number;
+	}
+	export class DonutGraphBuilder<T extends hasValue> extends ChartBuilder {
+	    private data;
+	    private getColorProperty;
+	    private getClassProperty;
+	    private donutWidth;
+	    private mouseInCb;
+	    private mouseOutCb;
+	    withDonutWitdh(width: number): this;
+	    withData(data: T[]): this;
+	    withColor(cb: (T) => string): this;
+	    withClass(cb: (T) => string): this;
+	    onDataMouseIn(cb: (T) => void): this;
+	    onDataMouseOut(cb: (T) => void): this;
+	    draw(where: Element): void;
+	}
+
+}
 declare module 'fluent-d3' {
 	export * from 'fluent-d3/line-graph-builder';
+	export * from 'fluent-d3/donut-graph-builder';
 
 }

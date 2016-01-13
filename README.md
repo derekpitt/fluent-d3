@@ -48,7 +48,6 @@ Coming soon
 
 - Documentation
 - Bring over:
-    - donut element
     - star element
     - bar chart element
 - Better update methods

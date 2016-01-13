@@ -18,6 +18,14 @@
   <h1>Example Line Graph</h1>
   <div class="graph" id="line-graph"></div>
 
+  <h1>Example Donut</h1>
+  <div class="donut" id="donut"></div>
+  <ul class="donut">
+    <li id="donut1">Data 1</li>
+    <li id="donut2">Data 2</li>
+    <li id="donut3">Data 3</li>
+  </ul>
+
   <script>
     require(['line-graph-builder'], function(lineGraphBuilder) {
       var line = new lineGraphBuilder.LineGraphBuilder()
@@ -72,6 +80,30 @@
         });
 
       line.draw(document.getElementById("line-graph"));
+    });
+  </script>
+
+  <script>
+    require(['donut-graph-builder'], function(donutGraphBuilder) {
+      var donut = new donutGraphBuilder.DonutGraphBuilder()
+        .withSize(500, 230)
+        .withMargins(50, 50, 20, 50)
+        .withData([
+          { value: 20, color: '#FFEE00', id: 'donut1' },
+          { value: 30, color: '#A5D4F3', id: 'donut2' },
+          { value: 50, color: '#00B7EE', id: 'donut3' },
+        ])
+        .withColor(function (d) { return d.color; })
+        .withClass(function (d) { return d.id; })
+        .withDonutWitdh(50)
+        .onDataMouseIn(function(d) {
+          document.getElementById(d.id).classList.add('hover');
+        })
+        .onDataMouseOut(function(d) {
+          document.getElementById(d.id).classList.remove('hover');
+        });
+
+      donut.draw(document.getElementById("donut"));
     });
   </script>
 </body>
