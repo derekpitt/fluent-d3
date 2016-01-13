@@ -141,10 +141,10 @@ declare module 'fluent-d3/donut-graph-builder' {
 	    private mouseOutCb;
 	    withDonutWitdh(width: number): this;
 	    withData(data: T[]): this;
-	    withColor(cb: (T) => string): this;
-	    withClass(cb: (T) => string): this;
-	    onDataMouseIn(cb: (T) => void): this;
-	    onDataMouseOut(cb: (T) => void): this;
+	    withColor(cb: (a: T) => string): this;
+	    withClass(cb: (a: T) => string): this;
+	    onDataMouseIn(cb: (a: T) => void): this;
+	    onDataMouseOut(cb: (a: T) => void): this;
 	    draw(where: Element): void;
 	}
 

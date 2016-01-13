@@ -27,22 +27,22 @@ export class DonutGraphBuilder<T extends hasValue> extends ChartBuilder {
     return this;
   }
 
-  public withColor(cb: (T) => string): this {
+  public withColor(cb: (a: T) => string): this {
     this.getColorProperty = cb;
     return this;
   }
 
-  public withClass(cb: (T) => string): this {
+  public withClass(cb: (a: T) => string): this {
     this.getClassProperty = cb;
     return this;
   }
 
-  public onDataMouseIn(cb: (T) => void): this {
+  public onDataMouseIn(cb: (a: T) => void): this {
     this.mouseInCb = cb;
     return this;
   }
 
-  public onDataMouseOut(cb: (T) => void): this {
+  public onDataMouseOut(cb: (a: T) => void): this {
     this.mouseOutCb = cb;
     return this;
   }
