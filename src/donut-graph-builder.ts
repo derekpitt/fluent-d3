@@ -2,14 +2,11 @@ import d3 from 'd3';
 
 import { ChartBuilder } from './chart-builder';
 import empty from './util/empty-element';
-
-export interface hasValue {
-  value: number;
-}
+import { HasValue } from './util/interfaces';
 
 const colors = d3.scale.category20().range();
 
-export class DonutGraphBuilder<T extends hasValue> extends ChartBuilder {
+export class DonutGraphBuilder<T extends HasValue> extends ChartBuilder {
   private data: T[] = [];
   private getColorProperty: (T, idx?: number) => string = (a, idx) => colors[idx % colors.length];
   private getClassProperty: (T) => string = (a) => null;

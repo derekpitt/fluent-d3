@@ -93,7 +93,7 @@ h1 {
   background-color: #4B9984;
 }
 
-.graph_tooltip {
+.graph_tooltip, .spark_tooltip {
   position: absolute;
   opacity: 0;
   visibility: hidden;
@@ -111,7 +111,7 @@ h1 {
   font-size: 13px;
 }
 
-.graph_tooltip.open {
+.graph_tooltip.open, .spark_tooltip.open {
   visibility: visible;
   opacity: .85;
   transition: opacity 0.2s;
@@ -128,4 +128,22 @@ ul.donut {
 
 ul.donut li {
   border-bottom: 1px solid grey;
+}
+
+#spark {
+  border: 1px solid #ccc;
+  width: 160px;
+  height: 50px;
+}
+
+.spark {
+  stroke-width: 1px;
+  stroke: #27BDE9;
+  fill: none;
+}
+
+#spark .point {
+  stroke-width: 1px;
+  stroke: rgba(39, 189, 233, 1);
+  fill: rgba(161, 227, 247, 1);
 }

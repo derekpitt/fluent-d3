@@ -31,15 +31,13 @@ export class LineBuilder extends ElementBuilder {
         return this;
     }
     draw(svg, x, y, width, height) {
-        let line = d3.svg
-            .line()
+        let line = d3.svg.line()
             .x((d) => x(d.x))
             .y((d) => y(d.y));
         if (this.smooth)
             line.interpolate("monotone").tension(0.5);
         if (this.fillBelow) {
-            let area = d3.svg
-                .area()
+            const area = d3.svg.area()
                 .x((d) => x(d.x))
                 .y0(height)
                 .y1((d) => y(d.y));
@@ -60,7 +58,7 @@ export class LineBuilder extends ElementBuilder {
             .attr("class", `line ${this.className}`)
             .attr("d", (d) => line(this.data));
         if (this.hasPoints) {
-            let points = this.data.filter(this.pointsFilter);
+            const points = this.data.filter(this.pointsFilter);
             svg.selectAll(`.${this.className}-point-ticks`)
                 .append("g").attr("class", `${this.className}-ticks`)
                 .data(points)
@@ -71,7 +69,7 @@ export class LineBuilder extends ElementBuilder {
                 .attr("y1", (d) => y(d.y))
                 .attr("x2", (d) => x(d.x))
                 .attr("y2", height);
-            let selectedPoints = svg.selectAll(`.${this.className}-points`)
+            const selectedPoints = svg.selectAll(`.${this.className}-points`)
                 .append("g").attr("class", `${this.className}-points`)
                 .data(points)
                 .enter()

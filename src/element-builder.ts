@@ -1,9 +1,6 @@
 import nextId from './util/next-id';
 import d3 from 'd3';
-
-// these need a new home..
-export type xyData = { x: number | string; y: number };
-export type templater = (...args: any[]) => string;
+import { xyData, templater } from './util/interfaces';
 
 function defaultToolTipTemplate(data: xyData, legendName: string) {
     return `${legendName} - ${data.y}`;

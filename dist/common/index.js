@@ -15,3 +15,7 @@ _defaults(exports, _interopExportWildcard(_lineGraphBuilder, _defaults));
 var _donutGraphBuilder = require('./donut-graph-builder');
 
 _defaults(exports, _interopExportWildcard(_donutGraphBuilder, _defaults));
+
+var _sparkBuilder = require('./spark-builder');
+
+_defaults(exports, _interopExportWildcard(_sparkBuilder, _defaults));

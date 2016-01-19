@@ -5,8 +5,8 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.20/require.min.js"></script>
   <script>
     requirejs.config({
-      //"baseUrl": "../dist/amd",
-      "baseUrl": "https://rawgithub.com/derekpitt/fluent-d3/master/dist/amd",
+      "baseUrl": "../dist/amd",
+      //"baseUrl": "https://rawgithub.com/derekpitt/fluent-d3/master/dist/amd",
       "paths": {
         "d3": "https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min"
       }
@@ -25,6 +25,9 @@
     <li id="donut2">Data 2</li>
     <li id="donut3">Data 3</li>
   </ul>
+
+  <h1>Example Spark</h1>
+  <div class="spark" id="spark"></div>
 
   <script>
     require(['line-graph-builder'], function(lineGraphBuilder) {
@@ -105,6 +108,18 @@
 
       donut.draw(document.getElementById("donut"));
     });
+  </script>
+
+  <script>
+    require(['spark-builder'], function(sparkBuilder) {
+      var spark = new sparkBuilder.SparkBuilder()
+        .withSize(150, 40)
+        .withMargins(5, 5, 5, 5)
+        .withData([1, 2, 3, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 1].map(function(d) { return { value: d }; }));
+
+      spark.draw(document.getElementById("spark"));
+    });
+
   </script>
 </body>
 

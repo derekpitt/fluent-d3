@@ -1,16 +1,16 @@
 (function (global, factory) {
   if (typeof define === 'function' && define.amd) {
-    define(['exports', './line-graph-builder', './donut-graph-builder'], factory);
+    define(['exports', './line-graph-builder', './donut-graph-builder', './spark-builder'], factory);
   } else if (typeof exports !== 'undefined') {
-    factory(exports, require('./line-graph-builder'), require('./donut-graph-builder'));
+    factory(exports, require('./line-graph-builder'), require('./donut-graph-builder'), require('./spark-builder'));
   } else {
     var mod = {
       exports: {}
     };
-    factory(mod.exports, global.lineGraphBuilder, global.donutGraphBuilder);
+    factory(mod.exports, global.lineGraphBuilder, global.donutGraphBuilder, global.sparkBuilder);
     global.index = mod.exports;
   }
-})(this, function (exports, _lineGraphBuilder, _donutGraphBuilder) {
+})(this, function (exports, _lineGraphBuilder, _donutGraphBuilder, _sparkBuilder) {
   'use strict';
 
   Object.defineProperty(exports, '__esModule', {
@@ -24,4 +24,6 @@
   _defaults(exports, _interopExportWildcard(_lineGraphBuilder, _defaults));
 
   _defaults(exports, _interopExportWildcard(_donutGraphBuilder, _defaults));
+
+  _defaults(exports, _interopExportWildcard(_sparkBuilder, _defaults));
 });

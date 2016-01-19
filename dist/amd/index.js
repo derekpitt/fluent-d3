@@ -1,4 +1,4 @@
-define(['exports', './line-graph-builder', './donut-graph-builder'], function (exports, _lineGraphBuilder, _donutGraphBuilder) {
+define(['exports', './line-graph-builder', './donut-graph-builder', './spark-builder'], function (exports, _lineGraphBuilder, _donutGraphBuilder, _sparkBuilder) {
   'use strict';
 
   Object.defineProperty(exports, '__esModule', {
@@ -12,4 +12,6 @@ define(['exports', './line-graph-builder', './donut-graph-builder'], function (e
   _defaults(exports, _interopExportWildcard(_lineGraphBuilder, _defaults));
 
   _defaults(exports, _interopExportWildcard(_donutGraphBuilder, _defaults));
+
+  _defaults(exports, _interopExportWildcard(_sparkBuilder, _defaults));
 });
