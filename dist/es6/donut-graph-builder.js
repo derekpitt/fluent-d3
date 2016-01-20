@@ -38,14 +38,15 @@ export class DonutGraphBuilder extends ChartBuilder {
     draw(where) {
         const { svg, width, height } = this.startDraw(where);
         const radius = Math.min(width, height) / 2;
-        svg.attr("transform", `translate(${(width / 2) + this.margin.left}, ${(height / 2) + this.margin.right})`);
+        const donutGroup = svg.append("g")
+            .attr("transform", `translate(${width / 2}, ${(height / 2)})`);
         let arc = d3.svg.arc()
             .innerRadius(radius - this.donutWidth)
             .outerRadius(radius);
         let pie = d3.layout.pie()
             .value(d => d.value)
             .sort(null);
-        svg.selectAll("path")
+        donutGroup.selectAll("path")
             .data(pie(this.data))
             .enter()
             .append("path")

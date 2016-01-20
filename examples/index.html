@@ -32,8 +32,8 @@
   <script>
     require(['line-graph-builder'], function(lineGraphBuilder) {
       var line = new lineGraphBuilder.LineGraphBuilder()
-        .withSize(500, 230)
-        .withMargins(50, 50, 20, 50)
+        .withSize(600, 250)
+        .withPadding(60, 20, 30, 40)
         .configureAxis(function(a) {
           a.withXLabels(['1/15', '2/15', '3/15', '4/15']);
           a.withYRange(0, 100);
@@ -89,8 +89,8 @@
   <script>
     require(['donut-graph-builder'], function(donutGraphBuilder) {
       var donut = new donutGraphBuilder.DonutGraphBuilder()
-        .withSize(500, 230)
-        .withMargins(50, 50, 20, 50)
+        .withSize(500, 250)
+        .withPadding(10, 10, 10, 10)
         .withData([
           { value: 20, color: '#FFEE00', id: 'donut1' },
           { value: 30, color: '#A5D4F3', id: 'donut2' },
@@ -113,8 +113,8 @@
   <script>
     require(['spark-builder'], function(sparkBuilder) {
       var spark = new sparkBuilder.SparkBuilder()
-        .withSize(150, 40)
-        .withMargins(5, 5, 5, 5)
+        .withSize(150, 50)
+        .withPadding(5, 5, 5, 5)
         .withData([1, 2, 3, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 1].map(function(d) { return { value: d }; }));
 
       spark.draw(document.getElementById("spark"));

@@ -31,7 +31,7 @@ export class LineBuilder extends ElementBuilder {
         return this;
     }
     draw(svg, x, y, width, height) {
-        let line = d3.svg.line()
+        const line = d3.svg.line()
             .x((d) => x(d.x))
             .y((d) => y(d.y));
         if (this.smooth)

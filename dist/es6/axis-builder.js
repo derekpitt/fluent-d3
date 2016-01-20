@@ -61,17 +61,17 @@ export class AxisBuilder {
                 y = d3.scale.linear().range([height, 0]).domain(this.yRange);
                 break;
         }
-        return { x: x, y: y };
+        return { x, y };
     }
     draw(svg, x, y, width, height) {
         if (this.hidden)
             return;
-        let xAxis = d3.svg.axis().scale(x).orient("bottom");
+        const xAxis = d3.svg.axis().scale(x).orient("bottom");
         if (this.xHasTicks)
             xAxis.innerTickSize(-height).outerTickSize(0).tickPadding(10);
         if (this.xTicks > 0)
             xAxis.ticks(this.xTicks);
-        let yAxis = d3.svg.axis().scale(y).orient("left");
+        const yAxis = d3.svg.axis().scale(y).orient("left");
         if (this.yHasTicks)
             yAxis.innerTickSize(-width).outerTickSize(0).tickPadding(10);
         if (this.yTicks > 0)

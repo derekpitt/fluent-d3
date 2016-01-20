@@ -43,7 +43,7 @@ export class LineBuilder<T extends xyData> extends ElementBuilder {
 
 
     public draw(svg: d3.Selection<any>, x: any, y: any, width: number, height: number) {
-        let line = d3.svg.line<xyData>()
+        const line = d3.svg.line<xyData>()
                      .x((d) => x(d.x))
                      .y((d) => y(d.y));
 

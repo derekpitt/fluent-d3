@@ -91,16 +91,11 @@ declare module 'fluent-d3/util/empty-element' {
 declare module 'fluent-d3/chart-builder' {
 	export class ChartBuilder {
 	    private size;
-	    protected margin: {
-	        top: number;
-	        right: number;
-	        left: number;
-	        bottom: number;
-	    };
+	    private padding;
 	    private legendElementWidth;
 	    private _svg;
 	    withSize(width: number, height: number): this;
-	    withMargins(top: number, right: number, bottom: number, left: number): this;
+	    withPadding(top: number, right: number, bottom: number, left: number): this;
 	    withLegendWidth(width: number): this;
 	    drawLine(x1: number, y1: number, x2: number, y2: number, className: string): void;
 	    protected drawLegend(legendData: {

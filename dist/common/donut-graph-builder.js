@@ -97,12 +97,12 @@ var DonutGraphBuilder = (function (_ChartBuilder) {
             var height = _startDraw.height;
 
             var radius = Math.min(width, height) / 2;
-            svg.attr("transform", 'translate(' + (width / 2 + this.margin.left) + ', ' + (height / 2 + this.margin.right) + ')');
+            var donutGroup = svg.append("g").attr("transform", 'translate(' + width / 2 + ', ' + height / 2 + ')');
             var arc = _d32['default'].svg.arc().innerRadius(radius - this.donutWidth).outerRadius(radius);
             var pie = _d32['default'].layout.pie().value(function (d) {
                 return d.value;
             }).sort(null);
-            svg.selectAll("path").data(pie(this.data)).enter().append("path").on("mouseover", function (d) {
+            donutGroup.selectAll("path").data(pie(this.data)).enter().append("path").on("mouseover", function (d) {
                 return _this.mouseInCb(d.data);
             }).on("mouseout", function (d) {
                 return _this.mouseOutCb(d.data);

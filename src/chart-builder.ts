@@ -3,7 +3,7 @@ import d3 from 'd3';
 
 export class ChartBuilder {
     private size = { width: 0, height: 0 };
-    protected margin = { top: 0, right: 0, left: 0, bottom: 0 };
+    private padding = { top: 0, right: 0, left: 0, bottom: 0 };
     private legendElementWidth = 200;
     private _svg: d3.Selection<any> = null;
 
@@ -13,11 +13,11 @@ export class ChartBuilder {
         return this;
     }
 
-    public withMargins(top: number, right: number, bottom: number, left: number): this {
-        this.margin.top = top;
-        this.margin.right = right;
-        this.margin.bottom = bottom;
-        this.margin.left = left;
+    public withPadding(top: number, right: number, bottom: number, left: number): this {
+        this.padding.top = top;
+        this.padding.right = right;
+        this.padding.bottom = bottom;
+        this.padding.left = left;
         return this;
     }
 
@@ -38,7 +38,7 @@ export class ChartBuilder {
 
     protected drawLegend(legendData: { className: string, legendName: string }[]) {
         if (this._svg == null) return;
-        let legend = this._svg.selectAll(".legend")
+        const legend = this._svg.selectAll(".legend")
             .data(legendData)
             .enter()
             .append("g")
@@ -51,7 +51,7 @@ export class ChartBuilder {
             .attr("class", (d) => d.className);
 
         legend.append("text")
-            .attr("transform", (d, i) => "translate(20, 10)")
+            .attr("transform", "translate(20, 10)")
             .attr("class", (d) => d.className)
             .text((d) => d.legendName);
     }
@@ -59,12 +59,14 @@ export class ChartBuilder {
     protected startDraw(where: Element) {
         empty(where);
         this._svg = d3.select(where).append("svg")
-            .attr("width", this.size.width + this.margin.left + this.margin.right)
-            .attr("height", this.size.height + this.margin.top + this.margin.bottom)
+            .attr("width", this.size.width)
+            .attr("height", this.size.height)
             .append("g")
-            .attr("transform", `translate(${this.margin.left}, ${this.margin.top})`);
+            .attr("transform", `translate(${this.padding.left}, ${this.padding.top})`);
 
-        const { width, height } = this.size;
+        let { width, height } = this.size;
+        width -= this.padding.left + this.padding.right;
+        height -= this.padding.top + this.padding.bottom;
 
         return { svg: this._svg, width, height };
     }

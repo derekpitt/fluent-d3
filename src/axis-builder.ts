@@ -10,7 +10,6 @@ enum axisMode {
     domain,
 }
 
-
 export class AxisBuilder {
     private xHasTicks = false;
     private yHasTicks = false;
@@ -78,13 +77,13 @@ export class AxisBuilder {
                 break;
         }
 
-        return { x: x, y: y };
+        return { x, y };
     }
 
     public draw(svg: d3.Selection<any>, x: Scale, y: Scale, width: number, height: number) {
         if (this.hidden) return;
 
-        let xAxis = d3.svg.axis().scale(x).orient("bottom");
+        const xAxis = d3.svg.axis().scale(x).orient("bottom");
 
         if (this.xHasTicks)
             xAxis.innerTickSize(-height).outerTickSize(0).tickPadding(10)
@@ -92,7 +91,7 @@ export class AxisBuilder {
         if (this.xTicks > 0)
             xAxis.ticks(this.xTicks);
 
-        let yAxis = d3.svg.axis().scale(y).orient("left");
+        const yAxis = d3.svg.axis().scale(y).orient("left");
 
         if (this.yHasTicks)
             yAxis.innerTickSize(-width).outerTickSize(0).tickPadding(10);

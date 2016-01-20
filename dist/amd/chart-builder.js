@@ -20,7 +20,7 @@ define(['exports', './util/empty-element', 'd3'], function (exports, _utilEmptyE
             _classCallCheck(this, ChartBuilder);
 
             this.size = { width: 0, height: 0 };
-            this.margin = { top: 0, right: 0, left: 0, bottom: 0 };
+            this.padding = { top: 0, right: 0, left: 0, bottom: 0 };
             this.legendElementWidth = 200;
             this._svg = null;
         }
@@ -33,12 +33,12 @@ define(['exports', './util/empty-element', 'd3'], function (exports, _utilEmptyE
                 return this;
             }
         }, {
-            key: 'withMargins',
-            value: function withMargins(top, right, bottom, left) {
-                this.margin.top = top;
-                this.margin.right = right;
-                this.margin.bottom = bottom;
-                this.margin.left = left;
+            key: 'withPadding',
+            value: function withPadding(top, right, bottom, left) {
+                this.padding.top = top;
+                this.padding.right = right;
+                this.padding.bottom = bottom;
+                this.padding.left = left;
                 return this;
             }
         }, {
@@ -65,9 +65,7 @@ define(['exports', './util/empty-element', 'd3'], function (exports, _utilEmptyE
                 legend.append("rect").attr("width", 10).attr("height", 10).attr("class", function (d) {
                     return d.className;
                 });
-                legend.append("text").attr("transform", function (d, i) {
-                    return "translate(20, 10)";
-                }).attr("class", function (d) {
+                legend.append("text").attr("transform", "translate(20, 10)").attr("class", function (d) {
                     return d.className;
                 }).text(function (d) {
                     return d.legendName;
@@ -77,11 +75,13 @@ define(['exports', './util/empty-element', 'd3'], function (exports, _utilEmptyE
             key: 'startDraw',
             value: function startDraw(where) {
                 (0, _empty['default'])(where);
-                this._svg = _d32['default'].select(where).append("svg").attr("width", this.size.width + this.margin.left + this.margin.right).attr("height", this.size.height + this.margin.top + this.margin.bottom).append("g").attr("transform", 'translate(' + this.margin.left + ', ' + this.margin.top + ')');
+                this._svg = _d32['default'].select(where).append("svg").attr("width", this.size.width).attr("height", this.size.height).append("g").attr("transform", 'translate(' + this.padding.left + ', ' + this.padding.top + ')');
                 var _size = this.size;
                 var width = _size.width;
                 var height = _size.height;
 
+                width -= this.padding.left + this.padding.right;
+                height -= this.padding.top + this.padding.bottom;
                 return { svg: this._svg, width: width, height: height };
             }
         }]);
