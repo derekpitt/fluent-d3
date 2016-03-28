@@ -20,6 +20,8 @@ System.register(['d3', './chart-builder'], function (_export) {
         execute: function () {
             colors = d3.scale.category20().range();
 
+            //const defaultHover = <T extends HasValue>(d: T) => `d.value
+
             DonutGraphBuilder = (function (_ChartBuilder) {
                 _inherits(DonutGraphBuilder, _ChartBuilder);
 
@@ -45,6 +47,11 @@ System.register(['d3', './chart-builder'], function (_export) {
                     this.mouseOutCb = function (a) {
                         return null;
                     };
+                    this.showHover = false;
+                    this.hover = function (a) {
+                        return '' + a.value;
+                    };
+                    this._tooltipDiv = null;
                 }
 
                 _createClass(DonutGraphBuilder, [{
@@ -84,9 +91,31 @@ System.register(['d3', './chart-builder'], function (_export) {
                         return this;
                     }
                 }, {
+                    key: 'withHover',
+                    value: function withHover(cb) {
+                        if (cb != null) this.hover = cb;
+                        this.showHover = true;
+                        return this;
+                    }
+                }, {
+                    key: 'tooltipEnter',
+                    value: function tooltipEnter(d) {
+                        var _this = this;
+
+                        this._tooltipDiv = d3.select("body").append("div").attr("class", this.getClassProperty(d) + ' graph_tooltip').html(this.hover(d)).style("background-color", this.getColorProperty(d)).style("left", d3.event.pageX + 'px').style("top", d3.event.pageY + 'px');
+                        setTimeout(function () {
+                            _this._tooltipDiv.attr("class", _this.getClassProperty(d) + ' graph_tooltip open');
+                        }, 1);
+                    }
+                }, {
+                    key: 'tooltipLeave',
+                    value: function tooltipLeave() {
+                        if (this._tooltipDiv) this._tooltipDiv.remove();
+                    }
+                }, {
                     key: 'draw',
                     value: function draw(where) {
-                        var _this = this;
+                        var _this2 = this;
 
                         var _startDraw = this.startDraw(where);
 
@@ -101,13 +130,15 @@ System.register(['d3', './chart-builder'], function (_export) {
                             return d.value;
                         }).sort(null);
                         donutGroup.selectAll("path").data(pie(this.data)).enter().append("path").on("mouseover", function (d) {
-                            return _this.mouseInCb(d.data);
+                            _this2.mouseInCb(d.data);
+                            if (_this2.showHover) _this2.tooltipEnter(d.data);
                         }).on("mouseout", function (d) {
-                            return _this.mouseOutCb(d.data);
+                            _this2.mouseOutCb(d.data);
+                            if (_this2.showHover) _this2.tooltipLeave();
                         }).attr("class", function (d) {
-                            return _this.getClassProperty(d.data);
+                            return _this2.getClassProperty(d.data);
                         }).attr("d", arc).attr("fill", function (d, idx) {
-                            return _this.getColorProperty(d.data, idx);
+                            return _this2.getColorProperty(d.data, idx);
                         });
                     }
                 }]);

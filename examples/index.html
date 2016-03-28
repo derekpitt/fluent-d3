@@ -98,6 +98,7 @@
         ])
         .withColor(function (d) { return d.color; })
         .withClass(function (d) { return d.id; })
+        //.withHover()
         .withDonutWitdh(50)
         .onDataMouseIn(function(d) {
           document.getElementById(d.id).classList.add('hover');
