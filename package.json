@@ -2,7 +2,7 @@
   "name": "fluent-d3",
   "version": "0.3.1",
   "description": "Fluent wrapper around d3",
-  "main": "index.js",
+  "main": "dist/common/index.js",
   "directories": {
     "example": "examples"
   },
